@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: basexamp
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_basket
+    username: root
+    password: root
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+

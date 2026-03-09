@@ -1,0 +1,18 @@
+-- -- 1. Insertamos primero en la tabla independiente (Padre)
+-- INSERT INTO city_stadium (name)
+-- VALUES ('Los angeles'),
+--        ('Boston');
+-- -- 2. Ahora insertamos en Stadium, usando los IDs de las ciudades creadas
+-- -- Suponiendo que 'Arena de Ciudad de México' obtuvo el ID 1 y el otro el ID 2
+-- INSERT INTO stadium (quantity, id_city) VALUES (22000, 1);
+-- INSERT INTO stadium (quantity, id_city) VALUES (18000, 2);
+--
+-- -- 3. Insertamos el Equipo que juega en uno de esos estadios
+-- -- El equipo depende de un estadio (id_stadium)
+-- INSERT INTO team (name, id_stadium) VALUES ('Lakers', 1);
+-- INSERT INTO team (name, id_stadium) VALUES ('Celtics', 2);
+--
+-- -- 4. Finalmente, los Jugadores que pertenecen a ese equipo
+-- INSERT INTO player (name, last_name, age, nationality, id_team)
+-- VALUES ('Lebron', 'James', 30, 'Estadounidense', 1),
+--        ('Jason', 'Tatum', 32, 'Estadounidense', 2);
