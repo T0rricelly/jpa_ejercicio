@@ -29,4 +29,12 @@ public class CityStadiumService {
     public CityStadium create(CityStadium cityStadium){
         return this.cityStadiumRepository.save(cityStadium);
     }
+
+    public Boolean exist(Integer id){
+        return this.cityStadiumRepository.existsById(id);
+    }
+
+    public void delete(Integer id){
+        this.cityStadiumRepository.deleteById(id);
+    }
 }
