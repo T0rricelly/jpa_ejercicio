@@ -18,4 +18,20 @@ public class StadiumService {
         return this.stadiumRepository.findAll();
     }
 
+    public Stadium getById(Integer id){
+        return this.stadiumRepository.findById(id).orElse(null);
+    }
+
+    public Stadium save(Stadium stadium){
+        return this.stadiumRepository.save(stadium);
+    }
+
+    public Boolean exist(Integer id){
+        return this.stadiumRepository.existsById(id);
+    }
+
+    public void delete(Integer id){
+        this.stadiumRepository.deleteById(id);
+    }
+
 }

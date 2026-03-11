@@ -2,6 +2,7 @@ package jpa.example.basexamp.controller;
 
 import jpa.example.basexamp.entity.CityStadium;
 import jpa.example.basexamp.service.CityStadiumService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,7 +30,7 @@ public class CityStadiumController {
     @PostMapping
     public ResponseEntity<CityStadium> save(@RequestBody CityStadium cityStadium) {
         if (cityStadium.getId() == null || !this.cityStadiumService.exist(cityStadium.getId())) {
-            return ResponseEntity.ok(this.cityStadiumService.create(cityStadium));
+            return ResponseEntity.status(HttpStatus.CREATED).body(this.cityStadiumService.create(cityStadium));
         }
         return ResponseEntity.badRequest().build();
     }

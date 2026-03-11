@@ -22,8 +22,8 @@ public class Team {
     @Column(nullable = false)
     private Integer id;
 
-    @Column(nullable = false, length = 100)
-    private String name;
+    @Column(nullable = false, length = 100, name = "name_team")
+    private String nameTeam;
 
     // Relaciones
 

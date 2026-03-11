@@ -18,6 +18,9 @@ public class Stadium {
     @Column(nullable = false)
     private Integer id;
 
+    @Column(nullable = false, name = "name_stadium")
+    private String nameStadium;
+
     @Column(nullable = false)
     private Integer quantity;
 
