@@ -1,5 +1,6 @@
 package jpa.example.basexamp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -26,6 +27,10 @@ public class Team {
     private String nameTeam;
 
     // Relaciones
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "team")
+    @JsonIgnore
+    private List<Player> players;
 
     @OneToOne(targetEntity = Stadium.class)
     @JoinColumn(name = "id_stadium")

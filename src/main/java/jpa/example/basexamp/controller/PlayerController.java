@@ -20,17 +20,42 @@ public class PlayerController {
 
     // Obtener todos los players
     @GetMapping
-    public ResponseEntity<List<Player>> getAll(){
+    public ResponseEntity<List<Player>> getAll() {
         return ResponseEntity.ok(this.playerService.getAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Player> getById(@PathVariable Integer id){
-        return ResponseEntity.ok(this.playerService.findById(id));
+    public ResponseEntity<?> getById(@PathVariable Integer id) {
+        if (this.playerService.exist(id)) {
+            return ResponseEntity.ok(this.playerService.findById(id));
+        }
+        return ResponseEntity.badRequest().body("No se encontro");
     }
 
-    @PostMapping("/crear")
-    public ResponseEntity<Player> save(@RequestBody Player player){
-        return ResponseEntity.status(HttpStatus.CREATED).body(this.playerService.save(player));
+    @PostMapping
+    public ResponseEntity<Player> save(@RequestBody Player player) {
+        if (player.getId() == null || !this.playerService.exist(player.getId())) {
+            return ResponseEntity.status(HttpStatus.CREATED).body(this.playerService.save(player));
+        }
+        return ResponseEntity.badRequest().build();
     }
+
+    @PutMapping
+    public ResponseEntity<String> update(@RequestBody Player player) {
+        if (player.getId() != null && this.playerService.exist(player.getId())) {
+            this.playerService.save(player);
+            return ResponseEntity.ok("Se actualizo correctamente");
+        }
+        return ResponseEntity.badRequest().body("No se encontro");
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteById(@PathVariable Integer id) {
+        if (this.playerService.exist(id)) {
+            this.playerService.delete(id);
+            return ResponseEntity.ok("Se elimino correctamente");
+        }
+        return ResponseEntity.badRequest().body("No se encontro");
+    }
+
 }

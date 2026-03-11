@@ -25,9 +25,16 @@ public class PlayerService {
         return this.playerRepository.findById(id).orElse(null);
     }
 
-    // Crear un player
+    public Boolean exist(Integer id){
+        return this.playerRepository.existsById(id);
+    }
 
+    // Crear un player
     public Player save(Player player){
         return this.playerRepository.save(player);
+    }
+
+    public void delete(Integer id){
+        this.playerRepository.deleteById(id);
     }
 }
