@@ -1,7 +1,7 @@
 package jpa.example.basexamp.controller;
 
 import jpa.example.basexamp.entity.Stadium;
-import jpa.example.basexamp.service.StadiumService;
+import jpa.example.basexamp.service.StadiumServiceImp;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +12,9 @@ import java.util.List;
 @RequestMapping("/api/stadium")
 public class StadiumController {
 
-    private final StadiumService stadiumService;
+    private final StadiumServiceImp stadiumService;
 
-    public StadiumController(StadiumService stadiumService) {
+    public StadiumController(StadiumServiceImp stadiumService) {
         this.stadiumService = stadiumService;
     }
 

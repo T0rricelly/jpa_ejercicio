@@ -1,8 +1,7 @@
 package jpa.example.basexamp.controller;
 
 import jpa.example.basexamp.entity.Player;
-import jpa.example.basexamp.service.PlayerService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jpa.example.basexamp.service.PlayerServiceImp;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,9 +11,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/player")
 public class PlayerController {
-    private final PlayerService playerService;
+    private final PlayerServiceImp playerService;
 
-    public PlayerController(PlayerService playerService) {
+    public PlayerController(PlayerServiceImp playerService) {
         this.playerService = playerService;
     }
 

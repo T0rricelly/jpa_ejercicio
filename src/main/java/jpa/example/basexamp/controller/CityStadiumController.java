@@ -1,7 +1,7 @@
 package jpa.example.basexamp.controller;
 
 import jpa.example.basexamp.entity.CityStadium;
-import jpa.example.basexamp.service.CityStadiumService;
+import jpa.example.basexamp.service.CityStadiumServiceImp;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +11,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/city")
 public class CityStadiumController {
-    private final CityStadiumService cityStadiumService;
+    private final CityStadiumServiceImp cityStadiumService;
 
-    public CityStadiumController(CityStadiumService cityStadiumService) {
+    public CityStadiumController(CityStadiumServiceImp cityStadiumService) {
         this.cityStadiumService = cityStadiumService;
     }
 

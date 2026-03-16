@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PlayerService {
+public class PlayerServiceImp {
     // Inyeccion de PlayerRepsoitory
     private final PlayerRepository playerRepository;
 
-    public PlayerService(PlayerRepository playerRepository) {
+    public PlayerServiceImp(PlayerRepository playerRepository) {
         this.playerRepository = playerRepository;
     }
 

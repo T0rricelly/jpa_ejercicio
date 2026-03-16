@@ -1,7 +1,6 @@
 package jpa.example.basexamp.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,7 +28,7 @@ public class Team {
     // Relaciones
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "team")
-    @JsonIgnore
+//    @JsonIgnore
     private List<Player> players;
 
     @OneToOne(targetEntity = Stadium.class)

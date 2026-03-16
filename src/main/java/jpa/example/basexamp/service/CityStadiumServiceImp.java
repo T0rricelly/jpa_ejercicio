@@ -7,11 +7,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class CityStadiumService {
+public class CityStadiumServiceImp {
     // Inyeccion de CityStadiumRepository
     private final CityStadiumRepository cityStadiumRepository;
 
-    public CityStadiumService(CityStadiumRepository cityStadiumRepository) {
+    public CityStadiumServiceImp(CityStadiumRepository cityStadiumRepository) {
         this.cityStadiumRepository = cityStadiumRepository;
     }
 
